@@ -143,19 +143,19 @@ int main(int argc, char **argv) {
 
     if (meta_image_detect(buf, (size_t)fileSz)) {
       LOGMSG(l_DEBUG, "Meta image header found");
-      if (!meta_image_extract(buf, (size_t)fileSz, pFiles.files[f], pRunArgs.outputDir)) {
+      if (!meta_image_extract(buf, (size_t)fileSz, pRunArgs.outputDir)) {
         LOGMSG(l_ERROR, "Skipping '%s'", pFiles.files[f]);
         goto next_file;
       }
     } else if (packed_image_detect(buf, (size_t)fileSz)) {
       LOGMSG(l_DEBUG, "packed image header found");
-      if (!packed_image_extract(buf, (size_t)fileSz, pFiles.files[f], pRunArgs.outputDir)) {
+      if (!packed_image_extract(buf, (size_t)fileSz, pRunArgs.outputDir)) {
         LOGMSG(l_ERROR, "Skipping '%s'", pFiles.files[f]);
         goto next_file;
       }
     } else if (bootldr_image_detect(buf, (size_t)fileSz)) {
       LOGMSG(l_DEBUG, "bootldr image header found");
-      if (!bootldr_image_extract(buf, (size_t)fileSz, pFiles.files[f], pRunArgs.outputDir)) {
+      if (!bootldr_image_extract(buf, (size_t)fileSz, pRunArgs.outputDir)) {
         LOGMSG(l_ERROR, "Skipping '%s'", pFiles.files[f]);
         goto next_file;
       }

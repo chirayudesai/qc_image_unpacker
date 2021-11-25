@@ -111,6 +111,6 @@ typedef struct fbpt_entry {
 } fbpt_entry_t;  // sizeof == 124
 
 bool packed_image_detect(u1 *, size_t);
-bool packed_image_extract(u1 *, size_t, char *, char *);
+bool packed_image_extract(u1 *, size_t, char *);
 
 #endif

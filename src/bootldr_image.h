@@ -45,6 +45,6 @@ typedef struct bootldr_img_header_entry {
 } bootldr_img_header_entry_t;
 
 bool bootldr_image_detect(u1 *, size_t);
-bool bootldr_image_extract(u1 *, size_t, char *, char *);
+bool bootldr_image_extract(u1 *, size_t, char *);
 
 #endif

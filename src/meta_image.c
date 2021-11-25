@@ -37,7 +37,7 @@ bool meta_image_detect(u1 *buf, size_t bufSz)
     return pMetaHeader->magic == META_IMG_MAGIC;
 }
 
-bool meta_image_extract(u1 *buf, size_t bufSz, char *filePath, char *outputDir) {
+bool meta_image_extract(u1 *buf, size_t bufSz, char *outputDir) {
   meta_header_t *pMetaHeader;
   meta_img_header_entry_t *pImgHeaderEntry;
   u4 i = 0, j = 0, images = 0;
@@ -74,7 +74,7 @@ bool meta_image_extract(u1 *buf, size_t bufSz, char *filePath, char *outputDir) 
 
   // Create output root directory to place extracted images
   memset(outPath, 0, sizeof(outPath));
-  snprintf(outPath, sizeof(outPath), "%s/%s_images", outputDir, utils_fileBasename(filePath));
+  snprintf(outPath, sizeof(outPath), "%s", outputDir);
   if (mkdir(outPath, 0755) && errno != EEXIST) {
     LOGMSG_P(l_ERROR, "mkdir(%s) failed", outPath);
     return false;

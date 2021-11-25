@@ -39,7 +39,7 @@ bool bootldr_image_detect(u1 *buf, size_t bufSz)
            (pBootLdrHeader->magic2 == BOOTLDR_IMG_MAGIC2);
 }
 
-bool bootldr_image_extract(u1 *buf, size_t bufSz, char *filePath, char *outputDir) {
+bool bootldr_image_extract(u1 *buf, size_t bufSz, char *outputDir) {
   bootldr_header_t *pBootLdrHeader;
   bootldr_img_header_entry_t *pImgHeaderEntry;
   u4 i = 0, j = 0, images, start_offset;
@@ -76,7 +76,7 @@ bool bootldr_image_extract(u1 *buf, size_t bufSz, char *filePath, char *outputDi
 
   // Create output root directory to place extracted images
   memset(outPath, 0, sizeof(outPath));
-  snprintf(outPath, sizeof(outPath), "%s/%s_images", outputDir, utils_fileBasename(filePath));
+  snprintf(outPath, sizeof(outPath), "%s", outputDir);
   if (mkdir(outPath, 0755) && errno != EEXIST) {
     LOGMSG_P(l_ERROR, "mkdir(%s) failed", outPath);
     return false;
