@@ -108,7 +108,7 @@ bool bootldr_image_extract(u1 *buf, size_t bufSz, char *filePath, char *outputDi
 
     // Write output file
     memset(outFile, 0, sizeof(outFile));
-    if (snprintf(outFile, sizeof(outFile), "%s/%s", outPath, pImgHeaderEntry[i].ptn_name) < 0) {
+    if (snprintf(outFile, sizeof(outFile), "%s/%s.img", outPath, pImgHeaderEntry[i].ptn_name) < 0) {
       LOGMSG(l_ERROR, "Failed to construct output path string");
       return false;
     }
