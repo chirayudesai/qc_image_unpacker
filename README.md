@@ -4,7 +4,8 @@ Tool to extract meta & packed Qualcomm images used in Android devices. These typ
 mostly used from bootloader and modem images. List of currently supported magic headers are:
 
 1. 0xce1ad63c: msm8996
-2. 0x4b504246: sdm845, sdm855, sdm670
+2. 0x544f4f42, 0x2152444c: msm8998
+3. 0x4b504246: sdm845, sdm855, sdm670, sm7250
 
 
 ## Compile
