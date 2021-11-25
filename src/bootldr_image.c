@@ -77,7 +77,7 @@ bool bootldr_image_extract(u1 *buf, size_t bufSz, char *filePath, char *outputDi
   // Create output root directory to place extracted images
   memset(outPath, 0, sizeof(outPath));
   snprintf(outPath, sizeof(outPath), "%s/%s_images", outputDir, utils_fileBasename(filePath));
-  if (mkdir(outPath, 0755)) {
+  if (mkdir(outPath, 0755) && errno != EEXIST) {
     LOGMSG_P(l_ERROR, "mkdir(%s) failed", outPath);
     return false;
   }
@@ -112,7 +112,7 @@ bool bootldr_image_extract(u1 *buf, size_t bufSz, char *filePath, char *outputDi
       LOGMSG(l_ERROR, "Failed to construct output path string");
       return false;
     }
-    dstfd = open(outFile, O_CREAT | O_EXCL | O_RDWR, 0644);
+    dstfd = open(outFile, O_CREAT | O_RDWR, 0644);
     if (dstfd == -1) {
       LOGMSG_P(l_ERROR, "Couldn't create output file '%s' in input directory", outFile);
       return false;
