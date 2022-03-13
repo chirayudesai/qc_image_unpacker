@@ -58,7 +58,7 @@ HEADERS = $(wildcard *.h)
 .PRECIOUS: $(TARGET) $(OBJECTS)
 
 $(TARGET): $(OBJECTS)
-	$(CC) $(OBJECTS) $(LDFLAGS) -o $@
+	$(CC) -static $(OBJECTS) $(LDFLAGS) -o $@
 	cp $(TARGET) ../bin/$(TARGET)
 
 clean:
