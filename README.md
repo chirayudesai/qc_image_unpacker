@@ -5,7 +5,7 @@ mostly used from bootloader and modem images. List of currently supported magic 
 
 1. 0xce1ad63c: msm8996
 2. 0x544f4f42, 0x2152444c: msm8998
-3. 0x4b504246: sdm845, sm8150, sm6150, sm7250
+3. 0x4b504246: sdm845, sm8150, sm6150, sm7250, sxr1120/sxr1130
 
 
 ## Compile
